@@ -23,5 +23,5 @@ spec:
       volumes:
       - name: volume
         image:
-          reference: ghcr.io/cybozu/ubuntu:22.04
+          reference: ghcr.io/cybozu/ubuntu-dev:22.04
           pullPolicy: IfNotPresent
