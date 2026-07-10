@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: test-image-volume
   namespace: test
@@ -16,12 +16,12 @@ spec:
       containers:
       - name: shell
         command: ["sleep", "infinity"]
-        image: ghcr.io/cybozu/ubuntu:24.04
+        image: ghcr.io/cybozu/ubuntu:22.04
         volumeMounts:
         - name: volume
           mountPath: /volume
       volumes:
       - name: volume
         image:
-          reference: ghcr.io/cybozu/ubuntu-dev:22.04
+          reference: busybox:1.37.0
           pullPolicy: IfNotPresent
